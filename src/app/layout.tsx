@@ -13,16 +13,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL("http://localhost:3000"),
+  metadataBase: new URL("https://www.jacobpoole.dev"),
+
   title: "Jacob Poole",
-  description: "Jacob Poole's personal portfolio website.",
+  description: "Frontend Developer specializing in React, Next.js, and modern UI experiences.",
+
   openGraph: {
     title: "Jacob Poole",
-    description: "Jacob Poole's personal portfolio website.",
-    images: ["/icon.png"],
+    description:
+      "Frontend Developer specializing in React, Next.js, and modern UI experiences.",
+    url: "https://www.jacobpoole.dev",
+    siteName: "Jacob Poole Portfolio",
+    images: [
+      {
+        url: "/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Jacob Poole Portfolio",
+      },
+    ],
+    type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
+    title: "Jacob Poole",
+    description:
+      "Frontend Developer specializing in React, Next.js, and modern UI experiences.",
     images: ["/icon.png"],
   },
 };
