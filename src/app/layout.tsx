@@ -13,8 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL("http://localhost:3000"),
   title: "Jacob Poole",
   description: "Jacob Poole's personal portfolio website.",
+  openGraph: {
+    title: "Jacob Poole",
+    description: "Jacob Poole's personal portfolio website.",
+    images: ["/icon.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/icon.png"],
+  },
 };
 
 export default function RootLayout({
