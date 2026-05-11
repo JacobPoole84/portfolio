@@ -448,6 +448,7 @@ export default function Module5Portfolio() {
                   'Next.js',
                   'TypeScript',
                   'Tailwind CSS',
+                  'GSAP',
                   'Node.js',
                   'PostgreSQL',
                   'API Design',
