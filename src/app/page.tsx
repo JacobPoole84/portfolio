@@ -344,6 +344,16 @@ export default function Module5Portfolio() {
                 githubLink: 'https://github.com/JacobPoole84/modern-ux-ui',
                 openInNewTab: true,
               },
+              {
+                id: 4,
+                title: 'Book summary & knowledge consumption platform',
+                description:
+                  'A modern productivity-focused reading platform that delivers condensed book insights, audio summaries, and self-improvement content through a clean, mobile-friendly interface',
+                image: '/summarist.png',
+                link: 'https://summarist-liard.vercel.app/',
+                githubLink: 'https://github.com/JacobPoole84/virtual-internship-v2',
+                openInNewTab: true,
+              },
             ].map(project => (
               <div
                 key={project.id}
