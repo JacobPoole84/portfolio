@@ -92,7 +92,7 @@ export default function Module5Portfolio() {
     gsap.set(blob, {
       x: window.innerWidth / 2 - size / 2,
       y: window.innerHeight / 2 - size / 2,
-      opacity: 0.18,
+      opacity: 0.32,
     })
 
     const moveBlob = (e: MouseEvent) => {
@@ -177,12 +177,12 @@ export default function Module5Portfolio() {
 
   return (
     <div
-      className={`min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
+      className={`min-h-screen overflow-x-hidden ${isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
     >
       <div
         ref={cursorBlobRef}
         aria-hidden="true"
-        className={`pointer-events-none fixed left-0 top-0 z-0 h-40 w-40 rounded-full blur-3xl transition-colors duration-300 ${isDark ? 'bg-cyan-300/20' : 'bg-blue-400/20'}`}
+        className={`pointer-events-none fixed left-0 top-0 z-0 hidden h-44 w-44 rounded-full blur-3xl transition-colors duration-300 md:block ${isDark ? 'bg-cyan-300/35' : 'bg-blue-400/35'}`}
       />
 
       <style>{`
@@ -211,7 +211,7 @@ export default function Module5Portfolio() {
         className={`sticky top-0 z-50 shadow-md ${isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}
       >
         <nav
-          className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+          className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-4 py-4 sm:flex-row sm:gap-6"
           aria-label="Main navigation"
         >
           <div>
@@ -223,8 +223,8 @@ export default function Module5Portfolio() {
               <Image src="/icon.png" alt="Portfolio logo" width={40} height={40} className="h-10 w-auto rounded-lg" priority />
             </a>
           </div>
-          <div className="flex items-center gap-6">
-            <ul className="flex gap-6" role="list">
+          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+            <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6" role="list">
               <li>
                 <a
                   href="#home"
@@ -274,7 +274,7 @@ export default function Module5Portfolio() {
             </ul>
             <button
               onClick={() => setIsDark(!isDark)}
-              className={`ml-4 px-4 py-2 rounded-lg font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+              className={`px-4 py-2 rounded-lg font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-2 ${
                 isDark
                   ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 focus:ring-yellow-400'
                   : 'bg-gray-800 text-white hover:bg-gray-700 focus:ring-blue-500'
@@ -290,7 +290,7 @@ export default function Module5Portfolio() {
       <section
         id="home"
         ref={heroRef}
-        className={`relative isolate overflow-hidden text-white py-20 fade-in ${isDark ? 'bg-gradient-to-r from-blue-900 to-blue-950' : 'bg-gradient-to-r from-blue-600 to-blue-800'}`}
+        className={`relative isolate overflow-hidden py-16 text-white fade-in sm:py-20 ${isDark ? 'bg-gradient-to-r from-blue-900 to-blue-950' : 'bg-gradient-to-r from-blue-600 to-blue-800'}`}
         aria-label="Hero section"
       >
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -316,24 +316,24 @@ export default function Module5Portfolio() {
           <span className={`hero-particle absolute left-[88%] top-[64%] h-2.5 w-2.5 rounded-full ${isDark ? 'bg-indigo-100/70' : 'bg-blue-100/85'}`} />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4 focus:outline-none">Jacob Poole</h1>
-          <p className={`text-xl mb-8 ${isDark ? 'text-blue-300' : 'text-blue-100'}`}>
+        <div className="relative z-10 mx-auto max-w-6xl px-4 text-center">
+          <h1 className="mb-4 text-4xl font-bold leading-tight focus:outline-none sm:text-5xl">Jacob Poole</h1>
+          <p className={`mb-8 text-base sm:text-xl ${isDark ? 'text-blue-300' : 'text-blue-100'}`}>
             Full-stack developer crafting innovative web solutions
           </p>
           <a
             href="mailto:jacobpoole84@gmail.com"
-            className={`inline-block px-8 py-3 rounded-lg font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${isDark ? 'bg-blue-300 text-blue-900 hover:bg-blue-200' : 'bg-white text-blue-600 hover:bg-blue-50'}`}
+            className={`inline-block rounded-lg px-6 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white sm:px-8 sm:text-base ${isDark ? 'bg-blue-300 text-blue-900 hover:bg-blue-200' : 'bg-white text-blue-600 hover:bg-blue-50'}`}
             aria-label="Contact me via email"
           >
             Contact Me
           </a>
-          <div className="mt-6 flex items-center justify-center gap-4" role="list" aria-label="Quick profile links">
+          <div className="mt-6 flex items-center justify-center gap-3 sm:gap-4" role="list" aria-label="Quick profile links">
             <a
               href="https://www.linkedin.com/in/jacob-poole-a546181a/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${isDark ? 'bg-blue-800 hover:bg-blue-700 text-white' : 'bg-blue-500 hover:bg-blue-400 text-white'}`}
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white sm:h-11 sm:w-11 ${isDark ? 'bg-blue-800 hover:bg-blue-700 text-white' : 'bg-blue-500 hover:bg-blue-400 text-white'}`}
               aria-label="Open LinkedIn"
               role="listitem"
             >
@@ -345,7 +345,7 @@ export default function Module5Portfolio() {
               href="https://github.com/JacobPoole84"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${isDark ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-gray-900 hover:bg-gray-800 text-white'}`}
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white sm:h-11 sm:w-11 ${isDark ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-gray-900 hover:bg-gray-800 text-white'}`}
               aria-label="Open GitHub"
               role="listitem"
             >
@@ -357,7 +357,7 @@ export default function Module5Portfolio() {
               href="/JacobPooleResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${isDark ? 'bg-emerald-700 hover:bg-emerald-600 text-white' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white sm:h-11 sm:w-11 ${isDark ? 'bg-emerald-700 hover:bg-emerald-600 text-white' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
               aria-label="Open Resume"
               role="listitem"
             >
@@ -374,13 +374,13 @@ export default function Module5Portfolio() {
         className={`w-full overflow-hidden border-y ${isDark ? 'border-blue-900/60 bg-blue-950/60' : 'border-blue-200 bg-blue-50'}`}
       >
         <div
-          className="flex w-max items-center py-4"
+          className="flex w-max items-center py-3 sm:py-4"
           style={{ animation: 'marquee 28s linear infinite' }}
         >
           {[...items, ...items].map(([label, symbol], index) => (
             <span
               key={`${label}-${index}`}
-              className={`mx-5 inline-flex items-center gap-3 text-sm font-semibold tracking-wide ${isDark ? 'text-blue-100' : 'text-blue-800'}`}
+              className={`mx-3 inline-flex items-center gap-2 text-xs font-semibold tracking-wide sm:mx-5 sm:gap-3 sm:text-sm ${isDark ? 'text-blue-100' : 'text-blue-800'}`}
               aria-hidden={index >= items.length}
             >
               <span>{label}</span>
@@ -392,16 +392,16 @@ export default function Module5Portfolio() {
 
       <section
         id="projects"
-        className={`py-20 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}
+        className={`py-16 sm:py-20 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}
         aria-label="Featured projects"
       >
         <div className="max-w-6xl mx-auto px-4">
           <h2
-            className={`text-4xl font-bold mb-12 text-center focus:outline-none ${isDark ? 'text-white' : 'text-gray-900'}`}
+            className={`mb-10 text-center text-3xl font-bold focus:outline-none sm:mb-12 sm:text-4xl ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-3 gap-8" role="list">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8" role="list">
             {[
               {
                 id: 1,
@@ -454,18 +454,18 @@ export default function Module5Portfolio() {
                   alt={project.title}
                   width={400}
                   height={300}
-                  className="w-full h-48 object-cover"
+                  className="h-44 w-full object-cover sm:h-48"
                 />
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <h3
                     className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}
                   >
                     {project.title}
                   </h3>
-                  <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`mb-4 text-sm sm:text-base ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                     {project.description}
                   </p>
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                     <a
                       href={project.link}
                       target={project.openInNewTab ? '_blank' : undefined}
@@ -494,12 +494,12 @@ export default function Module5Portfolio() {
 
       <section
         id="about"
-        className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-white'}`}
+        className={`py-16 sm:py-20 ${isDark ? 'bg-gray-900' : 'bg-white'}`}
         aria-label="About me"
       >
         <div className="max-w-6xl mx-auto px-4">
           <h2
-            className={`text-4xl font-bold mb-12 text-center focus:outline-none ${isDark ? 'text-white' : 'text-gray-900'}`}
+            className={`mb-10 text-center text-3xl font-bold focus:outline-none sm:mb-12 sm:text-4xl ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
             About Me
           </h2>
@@ -510,13 +510,13 @@ export default function Module5Portfolio() {
                 alt="Profile photo"
                 width={300}
                 height={300}
-                className="rounded-full shadow-lg"
+                className="h-52 w-52 rounded-full object-cover shadow-lg sm:h-72 sm:w-72"
               />
             </div>
 
             <div className="max-w-2xl text-center">
               <p
-                className={`text-lg mb-6 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
+                className={`mb-6 text-base leading-relaxed sm:text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
               >
                 I'm a passionate full-stack developer with a love for building beautiful, functional
                 web applications. With expertise in modern JavaScript frameworks and cloud
@@ -526,11 +526,11 @@ export default function Module5Portfolio() {
               </p>
 
               <h3
-                className={`text-2xl font-semibold mb-4 focus:outline-none ${isDark ? 'text-white' : 'text-gray-900'}`}
+                className={`mb-4 text-xl font-semibold focus:outline-none sm:text-2xl ${isDark ? 'text-white' : 'text-gray-900'}`}
               >
                 Skills
               </h3>
-              <div className="grid grid-cols-2 gap-3" role="list">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2" role="list">
                 {[
                   'JavaScript',
                   'React',
@@ -558,12 +558,12 @@ export default function Module5Portfolio() {
 
       <section
         id="contact"
-        className={`py-20 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}
+        className={`py-16 sm:py-20 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}
         aria-label="Contact form"
       >
         <div className="max-w-2xl mx-auto px-4">
           <h2
-            className={`text-4xl font-bold mb-12 text-center focus:outline-none ${isDark ? 'text-white' : 'text-gray-900'}`}
+            className={`mb-10 text-center text-3xl font-bold focus:outline-none sm:mb-12 sm:text-4xl ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
             Get In Touch
           </h2>
@@ -578,7 +578,7 @@ export default function Module5Portfolio() {
 
           <form
             onSubmit={handleSubmit}
-            className={`rounded-lg shadow-lg p-8 ${isDark ? 'bg-gray-700' : 'bg-white'}`}
+            className={`rounded-lg p-5 shadow-lg sm:p-8 ${isDark ? 'bg-gray-700' : 'bg-white'}`}
             aria-label="Contact form"
           >
             <div className="mb-6">
@@ -718,7 +718,7 @@ export default function Module5Portfolio() {
       </section>
 
       <footer
-        className={`text-white py-20 ${isDark ? 'bg-gray-950' : 'bg-gray-900'}`}
+        className={`py-16 text-white sm:py-20 ${isDark ? 'bg-gray-950' : 'bg-gray-900'}`}
         aria-label="Site footer"
       >
         <div className="max-w-6xl mx-auto px-4 text-center">
