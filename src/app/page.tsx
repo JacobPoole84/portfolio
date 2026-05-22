@@ -12,6 +12,21 @@ export default function Module5Portfolio() {
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const heroRef = useRef<HTMLElement | null>(null)
+  const cursorBlobRef = useRef<HTMLDivElement | null>(null)
+  const items = [
+    ['React', '★'],
+    ['Next.js', '★'],
+    ['TypeScript', '★'],
+    ['TailwindCSS', '★'],
+    ['GSAP', '★'],
+    ['Firebase', '★'],
+    ['OpenAI', '★'],
+    ['React Query', '★'],
+    ['Vite', '★'],
+    ['Stripe', '★'],
+    ['Jest', '★'],
+    ['Figma', '★'],
+  ] as const
 
   useEffect(() => {
     if (!heroRef.current) return
@@ -63,6 +78,35 @@ export default function Module5Portfolio() {
     }, heroRef)
 
     return () => ctx.revert()
+  }, [])
+
+  useEffect(() => {
+    if (!cursorBlobRef.current) return
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion || window.matchMedia('(pointer: coarse)').matches) return
+
+    const blob = cursorBlobRef.current
+    const size = 160
+
+    gsap.set(blob, {
+      x: window.innerWidth / 2 - size / 2,
+      y: window.innerHeight / 2 - size / 2,
+      opacity: 0.18,
+    })
+
+    const moveBlob = (e: MouseEvent) => {
+      gsap.to(blob, {
+        x: e.clientX - size / 2,
+        y: e.clientY - size / 2,
+        duration: 0.55,
+        ease: 'power3.out',
+        overwrite: 'auto',
+      })
+    }
+
+    window.addEventListener('mousemove', moveBlob)
+    return () => window.removeEventListener('mousemove', moveBlob)
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -135,6 +179,12 @@ export default function Module5Portfolio() {
     <div
       className={`min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
     >
+      <div
+        ref={cursorBlobRef}
+        aria-hidden="true"
+        className={`pointer-events-none fixed left-0 top-0 z-0 h-40 w-40 rounded-full blur-3xl transition-colors duration-300 ${isDark ? 'bg-cyan-300/20' : 'bg-blue-400/20'}`}
+      />
+
       <style>{`
         @keyframes fadeIn {
           from {
@@ -142,6 +192,14 @@ export default function Module5Portfolio() {
           }
           to {
             opacity: 1;
+          }
+        }
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
           }
         }
         .fade-in {
@@ -201,6 +259,16 @@ export default function Module5Portfolio() {
                   className={`hover:text-blue-600 transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
                 >
                   Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/JacobPooleResume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`hover:text-blue-600 transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
+                >
+                  Resume
                 </a>
               </li>
             </ul>
@@ -298,6 +366,27 @@ export default function Module5Portfolio() {
               </svg>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section
+        aria-label="Technology marquee"
+        className={`w-full overflow-hidden border-y ${isDark ? 'border-blue-900/60 bg-blue-950/60' : 'border-blue-200 bg-blue-50'}`}
+      >
+        <div
+          className="flex w-max items-center py-4"
+          style={{ animation: 'marquee 28s linear infinite' }}
+        >
+          {[...items, ...items].map(([label, symbol], index) => (
+            <span
+              key={`${label}-${index}`}
+              className={`mx-5 inline-flex items-center gap-3 text-sm font-semibold tracking-wide ${isDark ? 'text-blue-100' : 'text-blue-800'}`}
+              aria-hidden={index >= items.length}
+            >
+              <span>{label}</span>
+              <span className={`${isDark ? 'text-cyan-300' : 'text-blue-500'}`}>{symbol}</span>
+            </span>
+          ))}
         </div>
       </section>
 
