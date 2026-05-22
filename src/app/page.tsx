@@ -443,6 +443,16 @@ export default function Module5Portfolio() {
                 githubLink: 'https://github.com/JacobPoole84/virtual-internship-v2',
                 openInNewTab: true,
               },
+              {
+                id: 5,
+                title: 'NFT Marketplace',
+                description:
+                  'A modern NFT marketplace experience focused on clean browsing, discovery, and polished interface interactions.',
+                image: '/nft.png',
+                link: 'https://jacob-internship.vercel.app/',
+                githubLink: 'https://github.com/JacobPoole84/jacob-internship',
+                openInNewTab: true,
+              },
             ].map(project => (
               <div
                 key={project.id}
