@@ -319,7 +319,7 @@ export default function Module5Portfolio() {
         <div className="relative z-10 mx-auto max-w-6xl px-4 text-center">
           <h1 className="mb-4 text-4xl font-bold leading-tight focus:outline-none sm:text-5xl">Jacob Poole</h1>
           <p className={`mb-8 text-base sm:text-xl ${isDark ? 'text-blue-300' : 'text-blue-100'}`}>
-            Frontend Developer crafting innovative web solutions
+            Full-Stack Developer crafting innovative web solutions
           </p>
           <a
             href="mailto:jacobpoole84@gmail.com"
